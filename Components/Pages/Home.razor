@@ -1,9 +1,21 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
-
+<input @onchange="InputChanged" />
+<p>@message</p>
 <Counter IncrementAmount="10" />
+
+
+
+@code {
+    string message = string.Empty;
+    void InputChanged(ChangeEventArgs e)
+    {
+        message = (string)e.Value;
+    }
+}
